@@ -1,0 +1,25 @@
+{
+  "name": "cycly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dixylo/cycly.git"
+  },
+  "author": "dixylo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dixylo/cycly/issues"
+  },
+  "homepage": "https://github.com/dixylo/cycly#readme",
+  "dependencies": {
+    "config": "^3.0.1",
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "mongoose": "^5.4.20"
+  }
+}
