@@ -1,33 +1,40 @@
+const jwt = require('jsonwebtoken');
+const config = require('config');
 const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const USERNAME_MIN = 4;
 const USERNAME_MAX = 20;
 const PASSWORD_MIN = 6;
-const PASSWORD_MAX = 20;
+const PASSWORD_MAX_DB = 1024;
+const PASSWORD_MAX_JOI = 255;
 const EMAIL_MIN = 6;
-const EMAIL_MAX = 50;
+const EMAIL_MAX = 255;
 const PHONE_MIN = 6;
 const PHONE_MAX = 20;
 
-const User = mongoose.model('User', new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   username: {
     type: String,
     minlength: USERNAME_MIN,
     maxlength: USERNAME_MAX,
-    required: true
+    required: true,
+    trim: true
   },
   password: {
     type: String,
     minlength: PASSWORD_MIN,
-    maxlength: PASSWORD_MAX,
-    required: true
+    maxlength: PASSWORD_MAX_DB,
+    required: true,
+    trim: true
   },
   email: {
     type: String,
     minlength: EMAIL_MIN,
     maxlength: EMAIL_MAX,
-    required: true
+    unique: true,
+    required: true,
+    trim: true
   },
   phone: {
     type: String,
@@ -39,16 +46,23 @@ const User = mongoose.model('User', new mongoose.Schema({
     type: Boolean,
     default: false
   }
-}));
+});
+
+userSchema.methods.genAuthToken = function () {
+  const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, config.get('jwtPrivateKey'));
+  return token;
+};
+
+const User = mongoose.model('User', userSchema);
 
 function validate (user) {
   const schema = {
     username: Joi.string().min(USERNAME_MIN).max(USERNAME_MAX).required(),
-    password: Joi.string().min(PASSWORD_MIN).max(PASSWORD_MAX).required(),
-    email: Joi.string().min(EMAIL_MIN).max(EMAIL_MAX).required(),
+    password: Joi.string().min(PASSWORD_MIN).max(PASSWORD_MAX_JOI).required(),
+    email: Joi.string().min(EMAIL_MIN).max(EMAIL_MAX).email().required(),
     phone: Joi.string().min(PHONE_MIN).max(PHONE_MAX).required(),
-    isAdmin: Joi.boolean().required()
-  }
+    isAdmin: Joi.boolean()
+  };
 
   return Joi.validate(user, schema);
 }
