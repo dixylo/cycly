@@ -1,5 +1,7 @@
 const _ = require('lodash');
 const { Brand, validate } = require('../models/brand');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 const express = require('express');
 const router = express.Router();
 
@@ -21,7 +23,7 @@ router.get('/:id', async (req, res) => {
   res.send(brand);
 });
 
-router.post('/', async (req, res) => {
+router.post('/', [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -34,7 +36,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -48,7 +50,7 @@ router.put('/:id', async (req, res) => {
   res.send(brand);
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', [auth, admin], async (req, res) => {
   const brand = await Brand.findByIdAndDelete(req.params.id);
   if (!brand) return res.status(404).send('Brand with the given ID not found.');
 

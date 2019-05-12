@@ -1,6 +1,7 @@
 const { Rental, validate } = require('../models/rental');
 const { User } = require('../models/user');
 const { Cycle } = require('../models/cycle');
+const auth = require('../middleware/auth');
 const mongoose = require('mongoose');
 const Fawn = require('fawn');
 const express = require('express');
@@ -8,19 +9,19 @@ const router = express.Router();
 
 Fawn.init(mongoose);
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   const rentals = await Rental.find().sort('-rentedTime');
   res.send(rentals);
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', auth, async (req, res) => {
   const rental = await Rental.findById(req.params.id);
   if (!rental) return res.status(404).send('Rental with the given ID not found.');
 
   res.send(rental);
 });
 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -65,7 +66,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -104,7 +105,7 @@ router.put('/:id', async (req, res) => {
   res.send(rental);
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
   const rental = await Rental.findByIdAndDelete(req.params.id);
   if (!rental) return res.status(404).send('Rental with the given ID not found.');
 

@@ -1,5 +1,7 @@
 const _ = require('lodash');
 const { Type, validate } = require('../models/type');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 const express = require('express');
 const router = express.Router();
 
@@ -14,7 +16,7 @@ router.get('/:id', async (req, res) => {
   res.send(type);
 });
 
-router.post('/', async (req, res) => {
+router.post('/', [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -27,7 +29,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -41,7 +43,7 @@ router.put('/:id', async (req, res) => {
   res.send(type);
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', [auth, admin], async (req, res) => {
   const type = await Type.findByIdAndDelete(req.params.id);
   if (!type) return res.status(404).send('Type with the given ID not found.');
 
