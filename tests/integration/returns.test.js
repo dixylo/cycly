@@ -23,7 +23,7 @@ describe('/api/returns', () => {
   beforeEach(async () => {
     server = require('../../index');
     
-    token = new User().genAuthToken();
+    token = new User({ isAdmin: true }).genAuthToken();
 
     userId = mongoose.Types.ObjectId();
     cycleId = mongoose.Types.ObjectId();
@@ -55,7 +55,8 @@ describe('/api/returns', () => {
         size: 'MD',
         color: 'white',
         hourlyRentalRate: 1
-      }
+      },
+      timeRentedOut: moment().add(-3, 'hours').toDate()
     });
 
     await rental.save();
@@ -73,6 +74,14 @@ describe('/api/returns', () => {
     const res = await exec();
 
     expect(res.status).toBe(401);
+  });
+
+  it('should return 403 if user is not the admin.', async () => {
+    token = new User({ isAdmin: false }).genAuthToken();
+
+    const res = await exec();
+
+    expect(res.status).toBe(403);
   });
 
   it('should return 400 if no user ID is provided.', async () => {
@@ -97,6 +106,15 @@ describe('/api/returns', () => {
     const res = await exec();
 
     expect(res.status).toBe(404);
+  });
+
+  it('should return 400 if rental has yet to start.', async () => {
+    rental.timeRentedOut = null;
+    await rental.save();
+
+    const res = await exec();
+
+    expect(res.status).toBe(400);
   });
 
   it('should return 400 if rental is already processed.', async () => {
@@ -124,9 +142,6 @@ describe('/api/returns', () => {
   });
 
   it('should calculate the rental fee if input is valid.', async () => {
-    rental.timeRentedOut = moment().add(-3, 'hours').toDate();
-    await rental.save();
-
     await exec();
 
     const result = await Rental.findById(rental._id);
@@ -142,11 +157,11 @@ describe('/api/returns', () => {
     expect(result.numberInStock).toBe(cycle.numberInStock + 1);
   });
   
-  it('should return the  rental if input is valid.', async () => {
+  it('should return the rental if input is valid.', async () => {
     const res = await exec();
     
     expect(Object.keys(res.body)).toEqual(
-      expect.arrayContaining(['user', 'cycle', 'timeRentedOut', 'timeReturned', 'rentalFee'])
+      expect.arrayContaining(['user', 'cycle', 'timeOrdered', 'timeReturned', 'rentalFee'])
     );
   });
 });

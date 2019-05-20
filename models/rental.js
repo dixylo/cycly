@@ -45,10 +45,13 @@ const rentalSchema = new mongoose.Schema({
     }),
     required: true
   },
-  timeRentedOut: {
+  timeOrdered: {
     type: Date,
     required: true,
     default: Date.now
+  },
+  timeRentedOut: {
+    type: Date
   },
   timeReturned: {
     type: Date
