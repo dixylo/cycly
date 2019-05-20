@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 const Joi = require('joi');
 
-const Rental = mongoose.model('Rental', new mongoose.Schema({
+const rentalSchema = new mongoose.Schema({
   user: {
     type: new mongoose.Schema({
       username: {
@@ -44,19 +45,35 @@ const Rental = mongoose.model('Rental', new mongoose.Schema({
     }),
     required: true
   },
-  rentedTime: {
+  timeRentedOut: {
     type: Date,
     required: true,
     default: Date.now
   },
-  returnedTime: {
+  timeReturned: {
     type: Date
   },
   rentalFee: {
     type: Number,
     min: 0
   }
-}));
+});
+
+rentalSchema.statics.lookup = function (userId, cycleId) {
+  return this.findOne({
+    'user._id': userId,
+    'cycle._id': cycleId
+  });
+};
+
+rentalSchema.methods.return = function () {
+  this.timeReturned = new Date();
+
+  this.rentalFee = this.cycle.hourlyRentalRate
+    * moment().diff(this.timeRentedOut, 'hours');
+};
+
+const Rental = mongoose.model('Rental', rentalSchema);
 
 function validate (rental) {
   const schema = {

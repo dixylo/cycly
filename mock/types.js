@@ -1,4 +1,4 @@
-export const types = [
+module.exports = [
   { name: 'BMX', desc: 'BMX (bicycle motocross) bikes are designed for stunts, tricks, and racing on dirt BMX tracks.' },
   { name: 'Electric', desc: 'An electric bicycle is a bicycle with an integrated electric motor for propulsion.' },
   { name: 'Kids', desc: 'Kids bicycles are designed for kids with reduced size.' },
@@ -9,16 +9,3 @@ export const types = [
   { name: 'Unicycle', desc: 'A unicycle is a vehicle that touches the ground with only one wheel.' },
   { name: 'Utility', desc: 'Utility bicycles are designed for commuting, shopping and running errands.' },
 ];
-
-export async function createType () {
-  types.forEach(async (type) => {
-    const newType = new Type(type);
-  
-    try {
-      const result = await newType.save();
-      console.log('New Type Created Successfully.', result);
-    } catch (ex) {
-      console.log(ex.message);
-    }
-  });
-}

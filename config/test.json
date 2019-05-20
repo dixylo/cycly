@@ -1,0 +1,4 @@
+{
+  "jwtPrivateKey": "privateKeyForTest",
+  "db": "mongodb://localhost/cycly_tests"
+}
