@@ -7,6 +7,7 @@ const PHONE_MIN = 6;
 const PHONE_MAX = 20;
 const HOMEPAGE_MIN = 4;
 const HOMEPAGE_MAX = 255;
+const DESC_MAX = 255
 
 const brandSchema = new mongoose.Schema({
   name: {
@@ -15,6 +16,11 @@ const brandSchema = new mongoose.Schema({
     maxlength: NAME_MAX,
     unique: true,
     required: true,
+    trim: true
+  },
+  description: {
+    type: String,
+    maxlength: DESC_MAX,
     trim: true
   },
   country: {

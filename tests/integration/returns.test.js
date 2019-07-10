@@ -1,23 +1,23 @@
 const mongoose = require('mongoose');
 const request = require('supertest');
 const moment = require('moment');
+const _ = require('lodash');
 const { Rental } = require('../../models/rental');
 const { Cycle } = require('../../models/cycle');
 const { User } = require('../../models/user');
 
 describe('/api/returns', () => {
   let server;
-  let userId;
-  let cycleId;
-  let rental;
-  let cycle;
   let token;
+  let timeToCollect;
+  let cycle;
+  let rental;
+  let id;
 
   const exec = () => {
     return request(server)
-      .post('/api/returns')
-      .set('x-auth-token', token)
-      .send({ userId, cycleId });
+      .put('/api/returns/' + id)
+      .set('x-auth-token', token);
   };
 
   beforeEach(async () => {
@@ -25,41 +25,36 @@ describe('/api/returns', () => {
     
     token = new User({ isAdmin: true }).genAuthToken();
 
-    userId = mongoose.Types.ObjectId();
-    cycleId = mongoose.Types.ObjectId();
+    timeToCollect = moment().add(-3, 'hours').toDate();
 
     cycle = new Cycle({
-      _id: cycleId,
-      model: '12',
-      brand: { name: '22' },
-      type: { name: '32' },
-      size: 'MD',
-      color: 'white',
-      numberInStock: 10,
-      hourlyRentalRate: 1
+      model: 'ab',
+      brand: { name: 'cd' },
+      type: { name: 'ef' },
+      size: 'LG',
+      color: ['white'],
+      numberInStock: 100,
+      hourlyRentalRate: 10
     });
-
     await cycle.save();
 
     rental = new Rental({
       user: {
-        _id: userId,
+        _id: mongoose.Types.ObjectId(),
         username: '1234',
         phone: '123456'
       },
-      cycle: {
-        _id: cycleId,
-        model: '12',
-        brand: '22',
-        type: '32',
-        size: 'MD',
-        color: 'white',
-        hourlyRentalRate: 1
-      },
+      cycle: _.pick(cycle, [
+        '_id', 'model', 'brand', 'type', 'size', 'color', 'hourlyRentalRate'
+      ]),
+      timeOrdered: moment().add(-5, 'hours').toDate(),
+      timeToCollect,
       timeRentedOut: moment().add(-3, 'hours').toDate()
     });
 
     await rental.save();
+
+    id = rental._id;
   });
 
   afterEach(async () => {
@@ -84,24 +79,16 @@ describe('/api/returns', () => {
     expect(res.status).toBe(403);
   });
 
-  it('should return 400 if no user ID is provided.', async () => {
-    userId = '';
+  it('should return 400 if rental ID is invalid.', async () => {
+    id = '1';
 
     const res = await exec();
 
     expect(res.status).toBe(400);
   });
 
-  it('should return 400 if no cycle ID is provided.', async () => {
-    cycleId = '';
-
-    const res = await exec();
-
-    expect(res.status).toBe(400);
-  });
-
-  it('should return 404 if no rental is found for the user/cycle.', async () => {
-    await Rental.remove({});
+  it('should return 404 if no rental is found for the ID.', async () => {
+    id = mongoose.Types.ObjectId().toHexString();
 
     const res = await exec();
 
@@ -146,13 +133,13 @@ describe('/api/returns', () => {
 
     const result = await Rental.findById(rental._id);
 
-    expect(result.rentalFee).toBe(3);
+    expect(result.rentalFee).toBe(30);
   });
 
   it('should increase the cycle stock if input is valid.', async () => {
     await exec();
 
-    const result = await Cycle.findById(cycleId);
+    const result = await Cycle.findById(cycle._id);
 
     expect(result.numberInStock).toBe(cycle.numberInStock + 1);
   });
@@ -160,8 +147,9 @@ describe('/api/returns', () => {
   it('should return the rental if input is valid.', async () => {
     const res = await exec();
     
-    expect(Object.keys(res.body)).toEqual(
-      expect.arrayContaining(['user', 'cycle', 'timeOrdered', 'timeReturned', 'rentalFee'])
-    );
+    expect(Object.keys(res.body)).toEqual(expect.arrayContaining([
+      'user', 'cycle', 'timeOrdered', 'timeToCollect',
+      'timeRentedOut', 'timeReturned', 'rentalFee'
+    ]));
   });
 });

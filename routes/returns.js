@@ -1,13 +1,13 @@
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
-const inject = require('../middleware/validate');
-const { Rental, validate } = require('../models/rental');
-const { Cycle } =require('../models/cycle');
+const validateId = require('../middleware/validateObjectId');
+const { Rental } = require('../models/rental');
+const Fawn = require('fawn');
 const express = require('express');
 const router = express.Router();
 
-router.post('/', [auth, admin, inject(validate)], async (req, res) => {
-  const rental = await Rental.lookup(req.body.userId, req.body.cycleId);
+router.put('/:id', [auth, admin, validateId], async (req, res) => {
+  const rental = await Rental.findById(req.params.id);
  
   if (!rental) return res.status(404).send('Rental not found.');
 
@@ -16,14 +16,19 @@ router.post('/', [auth, admin, inject(validate)], async (req, res) => {
   if (rental.timeReturned) return res.status(400).send('Rental already processed.');
 
   rental.return();
-  await rental.save();
+  const { _id, cycle, timeReturned, rentalFee } = rental;
 
-  await Cycle.update(
-    { _id: rental.cycle._id },
-    { $inc: { numberInStock: 1 } }
-  );
+  try {
+    await new Fawn.Task()
+      .update('rentals', { _id }, { timeReturned, rentalFee })
+      .update('cycles', { _id: cycle._id }, { $inc: { numberInStock: 1 } })
+      .run();
 
-  res.send(rental);
+    res.send(rental);
+  } catch (ex) {
+    console.log(ex.message);
+    res.status(500).send('Something failed.');
+  }
 });
 
 module.exports = router;

@@ -2,15 +2,16 @@ const { Rental, validate } = require('../models/rental');
 const { User } = require('../models/user');
 const { Cycle } = require('../models/cycle');
 const auth = require('../middleware/auth');
-const mongoose = require('mongoose');
+const admin = require('../middleware/admin');
+const inject = require('../middleware/validate');
 const Fawn = require('fawn');
 const express = require('express');
 const router = express.Router();
 
-Fawn.init(mongoose);
-
-router.get('/', auth, async (req, res) => {
+router.get('/', [auth, admin], async (req, res) => {
   const rentals = await Rental.find().sort('-timeRentedOut');
+  if (!rentals.length) return res.status(404).send('No rentals found.');
+
   res.send(rentals);
 });
 
@@ -21,11 +22,22 @@ router.get('/:id', auth, async (req, res) => {
   res.send(rental);
 });
 
-router.post('/', auth, async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+router.get('/mine', auth, async (req, res) => {
+  const rentals = await Rental.lookup(req.user._id);
+  if (!rentals.length) return res.status(404).send('You do not have any rentals.');
 
-  const { userId, cycleId } = req.body;
+  res.send(rentals);
+});
+
+router.get('/user/:id', [auth, admin], async (req, res) => {
+  const rentals = await Rental.lookup(req.params.id);
+  if (!rentals.length) return res.status(404).send('This user has no rentals.');
+
+  res.send(rentals);
+});
+
+router.post('/', [auth, inject(validate)], async (req, res) => {
+  const { userId, cycleId, timeToCollect } = req.body;
 
   const user = await User.findById(userId);
   if (!user) return res.status(404).send('User with the given ID not found.');
@@ -51,8 +63,10 @@ router.post('/', auth, async (req, res) => {
       size,
       color,
       hourlyRentalRate
-    }
+    },
+    timeToCollect
   });
+
   try {
     await new Fawn.Task()
       .save('rentals', rental)
@@ -66,11 +80,28 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
-router.delete('/:id', auth, async (req, res) => {
-  const rental = await Rental.findByIdAndDelete(req.params.id);
+router.delete('/:id', [auth, admin], async (req, res) => {
+  const rental = await Rental.findById(req.params.id);
   if (!rental) return res.status(404).send('Rental with the given ID not found.');
 
-  res.send(rental);
+  const { _id, cycle, timeReturned } = rental;
+  if (timeReturned) {
+    await Rental.deleteOne({ _id });
+    
+    res.send(rental);
+  } else {
+    try {
+      await new Fawn.Task()
+        .remove('rentals', { _id })
+        .update('cycles', { _id: cycle._id }, { $inc: { numberInStock: 1 } })
+        .run();
+  
+      res.send(rental);
+    } catch (ex) {
+      console.log(ex.message);
+      res.status(500).send('Something failed.');
+    }
+  }
 });
 
-module.exports = router; 
+module.exports = router;

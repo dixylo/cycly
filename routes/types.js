@@ -7,7 +7,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  const types = await Type.find().sort('name').select({ name: 1, desc: 1 });
+  const types = await Type.find().sort('name').select({ name: 1, description: 1 });
   res.send(types);
 });
 
@@ -21,7 +21,7 @@ router.post('/', [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const type = new Type(_.pick(req.body, ['name', 'desc']));
+  const type = new Type(_.pick(req.body, ['name', 'description']));
   try {
     await type.save();
     res.send(type);
@@ -36,7 +36,7 @@ router.put('/:id', [auth, admin], async (req, res) => {
 
   const type = await Type.findByIdAndUpdate(
     req.params.id,
-    _.pick(req.body, ['name', 'desc']),
+    _.pick(req.body, ['name', 'description']),
     { new: true }
   );
   if (!type) return res.status(404).send('Type with the given ID not found.');

@@ -14,7 +14,7 @@ const typeSchema = new  mongoose.Schema({
     required: true,
     trim: true
   },
-  desc: {
+  description: {
     type: String,
     maxlength: DESC_MAX,
     trim: true
@@ -26,7 +26,7 @@ const Type = mongoose.model('Type', typeSchema);
 function validate (type) {
   const schema = {
     name: Joi.string().min(NAME_MIN).max(NAME_MAX).required(),
-    desc: Joi.string().max(DESC_MAX)
+    description: Joi.string().max(DESC_MAX)
   };
 
   return Joi.validate(type, schema);

@@ -50,6 +50,10 @@ const rentalSchema = new mongoose.Schema({
     required: true,
     default: Date.now
   },
+  timeToCollect: {
+    type: Date,
+    required: true
+  },
   timeRentedOut: {
     type: Date
   },
@@ -81,7 +85,8 @@ const Rental = mongoose.model('Rental', rentalSchema);
 function validate (rental) {
   const schema = {
     userId: Joi.objectId().required(),
-    cycleId: Joi.objectId().required()
+    cycleId: Joi.objectId().required(),
+    timeToCollect: Joi.date().required()
   };
 
   return Joi.validate(rental, schema);

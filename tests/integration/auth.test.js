@@ -16,7 +16,7 @@ describe('Authen Middleware IntTest', () => {
     return request(server)
       .post('/api/types')
       .set('x-auth-token', token)
-      .send({ name: 'TestType', desc: 'Description of TestType.' });
+      .send({ name: 'TestType', description: 'Description of TestType.' });
   };
 
   beforeEach(() => {

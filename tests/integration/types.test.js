@@ -22,7 +22,7 @@ describe('/api/types', () => {
       expect(res.body.length).toBe(types.length);
       types.forEach(
         type => expect(
-          res.body.some(t => t.name === type.name && t.desc === type.desc )
+          res.body.some(t => t.name === type.name && t.description === type.description )
         ).toBeTruthy()
       );
     });
@@ -30,20 +30,20 @@ describe('/api/types', () => {
 
   describe('GET /:id', () => {
     it('should return a type if a valid ID is passed.', async () => {
-      const type = new Type({ name: 'Plike', desc: 'A bike that can fly.' });
+      const type = new Type({ name: 'Plike', description: 'A bike that can fly.' });
       await type.save();
 
       const res = await request(server).get('/api/types/' + type._id);
 
       expect(res.status).toBe(200);
       expect(res.body).toHaveProperty('name', type.name);
-      expect(res.body).toHaveProperty('desc', type.desc);
+      expect(res.body).toHaveProperty('description', type.description);
     });
 
-    it('should return 404 if an invalid ID is passed.', async () => {
+    it('should return 400 if an invalid ID is passed.', async () => {
       const res = await request(server).get('/api/types/1');
 
-      expect(res.status).toBe(404);
+      expect(res.status).toBe(400);
     });
 
     it('should return 404 if no type with the given ID exists.', async () => {
@@ -57,19 +57,19 @@ describe('/api/types', () => {
   describe('POST /', () => {
     let token;
     let name;
-    let desc;
+    let description;
 
     const exec = () => {
       return request(server)
         .post('/api/types')
         .set('x-auth-token', token)
-        .send({ name, desc });
+        .send({ name, description });
     };
 
     beforeEach(() => {
       token = new User({ isAdmin: true }).genAuthToken();
       name = 'TestType';
-      desc = 'Description of TestType';
+      description = 'Description of TestType';
     });
 
     it('should return 401 if user has not logged in.', async () => {
@@ -96,8 +96,8 @@ describe('/api/types', () => {
       expect(res.status).toBe(400);
     });
 
-    it('should return 400 if desc name is more than 255 characters.', async () => {
-      desc = new Array(257).join('a');
+    it('should return 400 if description name is more than 255 characters.', async () => {
+      description = new Array(257).join('a');
 
       const res = await exec();
 
@@ -118,7 +118,7 @@ describe('/api/types', () => {
 
       expect(res.body).toHaveProperty('_id');
       expect(res.body).toHaveProperty('name', name);
-      expect(res.body).toHaveProperty('desc', desc);
+      expect(res.body).toHaveProperty('description', description);
     });
   });
 });

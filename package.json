@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --verbose --maxWorkers=1"
+    "test": "jest --watchAll --verbose --maxWorkers=1",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "10.15.0"
   },
   "repository": {
     "type": "git",
@@ -18,10 +22,12 @@
   "homepage": "https://github.com/dixylo/cycly#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
+    "compression": "^1.7.4",
     "config": "^3.0.1",
     "express": "^4.16.4",
     "express-async-errors": "^3.1.1",
     "fawn": "^2.1.5",
+    "helmet": "^3.18.0",
     "joi": "^14.3.1",
     "joi-objectid": "^2.0.0",
     "jsonwebtoken": "^8.5.1",

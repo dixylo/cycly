@@ -8,6 +8,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   const brands = await Brand.find().sort('name').select({
     name: 1,
+    description: 1,
     country: 1,
     phone: 1,
     homepage:1
