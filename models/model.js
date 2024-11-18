@@ -5,7 +5,7 @@ const NAME_MIN = 2;
 const NAME_MAX = 50;
 const DESC_MAX = 1000;
 
-const typeSchema = new mongoose.Schema({
+const modelSchema = new mongoose.Schema({
   name: {
     type: String,
     minlength: NAME_MIN,
@@ -19,13 +19,28 @@ const typeSchema = new mongoose.Schema({
     maxlength: DESC_MAX,
     trim: true,
   },
-  models: {
+  brand: {
+    type: {
+      _id: String,
+      name: String,
+    },
+    required: true,
+  },
+  type: {
+    type: {
+      _id: String,
+      name: String,
+    },
+    required: true,
+  },
+  cycles: {
     type: [
       {
         _id: String,
-        name: String,
-        brand: String,
-        imgUrl: String,
+        size: String,
+        color: String,
+        numberInStock: Number,
+        hourlyRentalRate: Number,
       },
     ],
     default: [],
@@ -36,18 +51,20 @@ const typeSchema = new mongoose.Schema({
   },
 });
 
-const Type = mongoose.model("Type", typeSchema);
+const Model = mongoose.model("Model", modelSchema);
 
-function validate(type) {
+function validate(model) {
   const schema = Joi.object({
     name: Joi.string().min(NAME_MIN).max(NAME_MAX).required(),
     description: Joi.string().max(DESC_MAX),
+    brandId: Joi.objectId().required(),
+    typeId: Joi.objectId().required(),
     imgUrl: Joi.string(),
   });
 
-  return schema.validate(type);
+  return schema.validate(model);
 }
 
-exports.typeSchema = typeSchema;
-exports.Type = Type;
+exports.modelSchema = modelSchema;
+exports.Model = Model;
 exports.validate = validate;

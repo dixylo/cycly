@@ -1,0 +1,62 @@
+[
+  {
+    "name": "BMX",
+    "description": "BMX (bicycle motocross) bikes are designed for stunts, tricks, and racing on dirt BMX tracks.",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/bmx.jpg"
+  },
+  {
+    "name": "Electric",
+    "description": "An electric bicycle is a bicycle with an integrated electric motor for propulsion.",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/electric.jpg"
+  },
+  {
+    "name": "Fitness",
+    "description": "Fitness bikes combine road bike speed and upright comfort for aggressive fitness rides or long commutes.",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/fitness.jpg"
+  },
+  {
+    "name": "Foldable",
+    "description": "A folding bicycle is a bicycle designed to fold into a compact form, facilitating transport and storage.",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/foldable.jpg"
+  },
+  {
+    "name": "Kids",
+    "description": "Kids bicycles are designed for kids with reduced size.",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/kids.jpg"
+  },
+  {
+    "name": "Mountain",
+    "description": "Mountain bicycles (a.k.a. All Terrain Bicycle) are designed for off-road cycling.",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/mountain.jpg"
+  },
+  {
+    "name": "Road",
+    "description": "Road bicycles are designed for traveling at speed on paved roads.",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/road.jpg"
+  },
+  {
+    "name": "Tandem",
+    "description": "A tandem or twin has two or more riders behind each other.",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/tandem.jpg"
+  },
+  {
+    "name": "Touring",
+    "description": "A touring bicycle is a bicycle designed or modified to handle bicycle touring.",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/touring.jpg"
+  },
+  {
+    "name": "Triathlon",
+    "description": "Triathlon bikes are built to meet the demands of professional triathletes and world champion time trialists",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/triathlon.jpg"
+  },
+  {
+    "name": "Unicycle",
+    "description": "A unicycle is a vehicle that touches the ground with only one wheel.",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/unicycle.jpg"
+  },
+  {
+    "name": "Utility",
+    "description": "Utility bicycles are designed for commuting, shopping and running errands.",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/types/utility.jpg"
+  }
+]

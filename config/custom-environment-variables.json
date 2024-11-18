@@ -1,3 +1,4 @@
 {
-  "jwtPrivateKey": "cycly_jwtPrivateKey"
+  "jwtPrivateKey": "cycly_jwtPrivateKey",
+  "db": "cycly_db"
 }

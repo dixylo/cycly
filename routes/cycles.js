@@ -1,95 +1,141 @@
-const { Cycle, validate } = require('../models/cycle');
-const { Brand } = require('../models/brand');
-const { Type } = require('../models/type');
-const auth = require('../middleware/auth');
-const admin = require('../middleware/admin');
-const express = require('express');
+const mongoose = require("mongoose");
+const express = require("express");
 const router = express.Router();
+const { Cycle, validate } = require("../models/cycle");
+const { Model } = require("../models/model");
+const { Rental } = require("../models/rental");
+const validateId = require("../middleware/validateId");
+const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
+const inject = require("../middleware/validate");
 
-router.get('/', async (req, res) => {
-  const cycles = await Cycle.find().sort('model');
+router.get("/", async (req, res) => {
+  const cycles = await Cycle.find().sort("model");
   res.send(cycles);
 });
 
-router.get('/:id', async (req, res) => {
+router.get("/:id", validateId, async (req, res) => {
   const cycle = await Cycle.findById(req.params.id);
-  if (!cycle) return res.status(404).send('Cycle with the given ID not found.');
+  if (!cycle) return res.status(404).send("Cycle with the given ID not found.");
 
   res.send(cycle);
 });
 
-router.post('/', [auth, admin], async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+router.post("/", [auth, admin, inject(validate)], async (req, res) => {
+  const { modelId, size, color, numberInStock, hourlyRentalRate } = req.body;
 
-  const { model, brandId, typeId, size, color, numberInStock, hourlyRentalRate } = req.body;
+  const model = await Model.findById(modelId).select({
+    _id: 1,
+    name: 1,
+    brand: 1,
+    type: 1,
+  });
+  if (!model) return res.status(400).send("Invalid model.");
 
-  const brand = await Brand.findById(brandId);
-  if (!brand) return res.status(400).send('Invalid brand.');
-
-  const type = await Type.findById(typeId);
-  if (!type) return res.status(400).send('Invalid type.');
-
-  const cycle = new Cycle ({
-    model,
-    brand: {
-      _id: brandId,
-      name: brand.name
-    },
-    type: {
-      _id: typeId,
-      name: type.name
-    },
+  const { _id, name, brand, type } = model;
+  const cycle = new Cycle({
+    model: { _id, name },
+    brand: brand.name,
+    type: type.name,
     size,
     color,
     numberInStock,
-    hourlyRentalRate
+    hourlyRentalRate,
   });
+
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
   try {
-    await cycle.save();
+    await cycle.save({ session });
+    await Model.updateOne(
+      { _id },
+      {
+        $push: {
+          cycles: {
+            _id: cycle._id,
+            size,
+            color,
+            numberInStock,
+            hourlyRentalRate,
+          },
+        },
+      },
+      { session }
+    );
+
+    await session.commitTransaction();
+    session.endSession();
     res.send(cycle);
   } catch (ex) {
-    console.log(ex.message);
+    await session.abortTransaction();
+    session.endSession();
+    console.error(ex.message);
+    res.status(500).send("Something failed.");
   }
 });
 
-router.put('/:id', auth, async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+router.put(
+  "/:id",
+  [validateId, auth, admin, inject(validate)],
+  async (req, res) => {
+    const { size, color, numberInStock, hourlyRentalRate } = req.body;
+    try {
+      const cycle = await Cycle.findOneAndUpdate(
+        { _id: req.params.id },
+        { size, color, numberInStock, hourlyRentalRate },
+        { new: true }
+      );
+      if (!cycle)
+        return res.status(404).send("Cycle with the given ID not found.");
 
-  const { model, brandId, typeId, size, color, numberInStock, hourlyRentalRate } = req.body;
+      res.send(cycle);
+    } catch (ex) {
+      console.error(ex.message);
+      res.status(500).send("Something failed.");
+    }
+  }
+);
 
-  const brand = await Brand.findById(brandId);
-  if (!brand) return res.status(400).send('Invalid brand.');
+router.delete("/:id", [validateId, auth, admin], async (req, res) => {
+  const session = await mongoose.startSession();
+  session.startTransaction();
 
-  const type = await Type.findById(typeId);
-  if (!type) return res.status(400).send('Invalid type.');
+  try {
+    const cycle = await Cycle.findById(req.params.id).session(session);
+    if (!cycle) {
+      await session.abortTransaction();
+      return res.status(404).send("Cycle with the given ID not found.");
+    }
 
-  const cycle = await Cycle.findByIdAndUpdate(req.params.id, {
-    model,
-    brand: {
-      _id: brandId,
-      name: brand.name
-    },
-    type: {
-      _id: typeId,
-      name: type.name
-    },
-    size,
-    color,
-    numberInStock,
-    hourlyRentalRate
-  });
-  if (!cycle) return res.status(404).send('Cycle with the given ID not found.');
+    const query = { "cycle._id": req.params.id };
+    const rentals = await Rental.lookup(query);
+    if (rentals && rentals.length) {
+      await session.abortTransaction();
+      return res.status(403).send("Could not delete cycles ever rented.");
+    }
 
-  res.send(cycle);
-});
+    const { _id, model } = cycle;
 
-router.delete('/:id', [auth, admin], async (req, res) => {
-  const cycle = await Cycle.findByIdAndDelete(req.params.id);
-  if (!cycle) return res.status(404).send('Cycle with the given ID not found.');
+    // Remove cycle
+    await Cycle.deleteOne({ _id }).session(session);
 
-  res.send(cycle);
+    // Update model to remove reference to cycle
+    await Model.updateOne(
+      { _id: model._id },
+      { $pull: { cycles: { _id } } },
+      { session }
+    );
+
+    await session.commitTransaction();
+    session.endSession();
+    res.send(cycle);
+  } catch (ex) {
+    await session.abortTransaction();
+    session.endSession();
+    console.error(ex.message);
+    res.status(500).send("Something failed.");
+  }
 });
 
 module.exports = router;

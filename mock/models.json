@@ -1,0 +1,464 @@
+[
+  {
+    "name": "Propel Advanced",
+    "description": "Launch your attack. Sprint for the win. This composite aero rocketship combines AeroSystem Shaping Technology with disc-brake integration. The result: control, efficiency, and race-winning speed.",
+    "brandId": "67311bb1600dc86fd18af8c2",
+    "typeId": "67311c8b600dc86fd18af8ce",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/giant_road_propel-advanced.jpg"
+  },
+  {
+    "name": "TCR Advanced Pro Disc",
+    "description": "Faster on climbs, faster on descents. This unbeatable all-rounder is lightweight, ultra-efficient, and always in control. From the mountains to the flats, in all conditions and any weather, TCR Advanced Pro Disc takes it to the next level.",
+    "brandId": "67311bb1600dc86fd18af8c2",
+    "typeId": "67311c8b600dc86fd18af8ce",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/giant_road_tcr-advanced-pro.jpg"
+  },
+  {
+    "name": "Cross City Disc",
+    "description": "The best fitness plan is one that’s fun. This versatile flat-bar road bike can get your legs spinning and motivate you to be active every day. Commute to work, ride to class, find new adventures in your daily routine.",
+    "brandId": "67311bb1600dc86fd18af8c2",
+    "typeId": "67311c30600dc86fd18af8c4",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/giant_utility_cross-city-disc.jpg"
+  },
+  {
+    "name": "Expressway",
+    "description": "Whether you’re carrying it on the train or pedaling through city streets, Expressway has everything you need to make your commute faster and more fun. Its slick folding design lets you pack it up easily for storage or transport.",
+    "brandId": "67311bb1600dc86fd18af8c2",
+    "typeId": "67311cee600dc86fd18af8d4",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/giant_foldable_expressway.jpg"
+  },
+  {
+    "name": "Trinity Advanced Pro",
+    "description": "Full integration, flat-out fast. Built to meet the demands of professional triathletes and world champion time trialists, this speeding bullet is in a class of its own. Experience supreme aerodynamic performance in a race-ready package.",
+    "brandId": "67311bb1600dc86fd18af8c2",
+    "typeId": "67311c59600dc86fd18af8c8",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/giant_triathlon_trinity-advanced-pro.jpg"
+  },
+  {
+    "name": "Contend SL Disc",
+    "description": "The perfect blend of confident and capable. Designed to help you take your road riding to the next level, Contend SL Disc is your ticket to longer rides, faster speeds, and more fun than you ever imagined.",
+    "brandId": "67311bb1600dc86fd18af8c2",
+    "typeId": "67311d01600dc86fd18af8d6",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/giant_fitness_contend-sl.jpg"
+  },
+  {
+    "name": "Trance Advanced",
+    "description": "Be ready to rock on all types of trails. From lung-busting climbs to screaming descents, this ultra-capable singletrack shredder is built on a lightweight and stiff composite frame with updated Maestro Suspension that keeps you in control.",
+    "brandId": "67311bb1600dc86fd18af8c2",
+    "typeId": "67311ca1600dc86fd18af8d0",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/giant_mountain_trance-advanced.jpg"
+  },
+  {
+    "name": "Halfway",
+    "description": "Giant are the biggest bike manufacturers in the world, so it’s only natural they should offer a folding model in their range. This clever design was penned years ago by legendary British bike designer Mike Burrows – the brains behind Chris Boardman’s 1992 Olympic gold-winning track bike. Unlike on most bikes, the forks and frame only support the wheels on one side, meaning you can fix punctures or change tyres without removing them.",
+    "brandId": "67311bb1600dc86fd18af8c2",
+    "typeId": "67311cee600dc86fd18af8d4",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/giant_foldable_halfway.jpg"
+  },
+  {
+    "name": "Toughroad SLR 1",
+    "description": "Yep, the Toughroad looks like a mountain bike, thanks to the flat bar and big, rugged tires, but this rig has the heart of a touring bike. ALUXX SLR aluminum and a composite fork keep the frame light and nimble, and that flat bar keeps you up and in charge when the road gets rough. The bike comes stock with 700c wheels with tubeless 50c tires, hydraulic disc brakes, and the D-Fuse handlebar and seatpost, which help absorb all that road chatter. Integrated rack mounts on the front and rear let you distribute the load. Don’t like the flat bar? Go with the Toughroad SLR GX1 with drop bar.",
+    "brandId": "67311bb1600dc86fd18af8c2",
+    "typeId": "67311c68600dc86fd18af8ca",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/giant_touring_toughroad-slr-1.jpg"
+  },
+  {
+    "name": "Conway",
+    "description": "Progress is forward movement, no matter where you start. GT’s Freestyle lineup has a bike for everyone, from the newbie learning their first cancan to seasoned vets like team riders Brian Kachinsky and Leandro Moriera. With lightweight, sturdy frames, and every possible configuration of set-up, the only way to go is forward.",
+    "brandId": "67311ba0600dc86fd18af8c0",
+    "typeId": "67311d1a600dc86fd18af8da",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/gt_bmx_conway.jpg"
+  },
+  {
+    "name": "Speed Series Pro",
+    "description": "One race is all it takes to plant the seed of wanting a podium finish. Whether you’re new to the lineup or looking to take your speed game to the next level, the 2017 Race bikes from GT are a perfect fit. Stiff, light, and strong, they are built ready to train and ready to win.",
+    "brandId": "67311ba0600dc86fd18af8c0",
+    "typeId": "67311d1a600dc86fd18af8da",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/gt_bmx_speed-series-pro.jpg"
+  },
+  {
+    "name": "Force Carbon Pro",
+    "description": "Some days are meant for quick spins through rolling hills. Others are meant to test the limits of your endurance with steep ups and technical downs. When you want a steed to tackle the whole mountain, you want something from the GT All-Mountain range.",
+    "brandId": "67311ba0600dc86fd18af8c0",
+    "typeId": "67311ca1600dc86fd18af8d0",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/gt_mountain_force-carbon-pro.jpg"
+  },
+  {
+    "name": "Traffic X",
+    "description": "Trade in the car for a new commute. Now you can beat the morning rush hour with GT’s line of capable commuters: lightweight and utilitarian, you’ll get there faster and happier than being caged up in a car.",
+    "brandId": "67311ba0600dc86fd18af8c0",
+    "typeId": "67311c30600dc86fd18af8c4",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/gt_utility_traffic-x.jpg"
+  },
+  {
+    "name": "Grunge Coaster",
+    "description": "There is a lot to be said about showing your son the wonders of the great outdoors. It teaches him appreciation for nature, how to enjoy a little exercise, and how to have fun without sitting in front of a screen. With sizes in the GT Boy’s lineup starting at 12” and going up to 24”, it’s never too early to start.",
+    "brandId": "67311ba0600dc86fd18af8c0",
+    "typeId": "67311cdc600dc86fd18af8d2",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/gt_kids_grunge-coaster.jpg"
+  },
+  {
+    "name": "Siren Coaster",
+    "description": "Normally you associate sirens with warnings, and this is no different: your petite pedaller is about to start ripping the trails. Are you ready for this kind of ruckus? The LegitFit frame makes for faster starts, easier pedaling, and the perfect positioning to announce the arrival of a new generation.",
+    "brandId": "67311ba0600dc86fd18af8c0",
+    "typeId": "67311cdc600dc86fd18af8d2",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/gt_kids_siren-coaster.jpg"
+  },
+  {
+    "name": "Transeo Elite",
+    "description": "If you’re the kind of rider who rides to work for fun, likes to roll down to the park on the weekends, and takes on the occasional charity ride, you need something as versatile as you. GT’s Sport bikes feature comfortable geometries and lightweight frames, so you can make your ride exactly what you want it to be.",
+    "brandId": "67311ba0600dc86fd18af8c0",
+    "typeId": "67311c8b600dc86fd18af8ce",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/gt_road_transeo-elite.jpg"
+  },
+  {
+    "name": "V10",
+    "description": "No compromises, no gimmicks, no shortcuts—it was designed in parallel to the 29er V10 as an original suspension platform and chassis. Make your choice according to your size or riding style, and you’ll be the recipient of every bit of work and puzzling that’s gone into the Syndicate’s race bikes",
+    "brandId": "67311b88600dc86fd18af8be",
+    "typeId": "67311ca1600dc86fd18af8d0",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/santa_mountain_v10.jpg"
+  },
+  {
+    "name": "Stigmata",
+    "description": "Geometry plays a big part here too, so we’ve made tweaks to improve handling for smaller riders and reduce toe overlap. The reworking of the 52/54cm frames means the Stigmata now comfortably suits riders from 5’3” and up.",
+    "brandId": "67311b88600dc86fd18af8be",
+    "typeId": "67311c8b600dc86fd18af8ce",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/santa_road_stigmata.jpg"
+  },
+  {
+    "name": "Jackal",
+    "description": "The Jackal is a no BS dirt jump, pump track, and urban assault weapon bike. A clever asymmetrical yoke permits the use of rock solid and super short 15.2-inch chainstays. And for those who want to take their anarchy further afield, the unique sliding rear dropouts allow for a geared as well as single speed set-up.",
+    "brandId": "67311b88600dc86fd18af8be",
+    "typeId": "67311d1a600dc86fd18af8da",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/santa_bmx_jackal.jpg"
+  },
+  {
+    "name": "Powerfly LT 9",
+    "description": "Powerfly LT 9 is the top-end alloy full-suspension electric mountain bike in the line-up. Longer travel 150 mm/160 mm suspension with Trek's exclusive RE:aktiv damper, a powerful Bosch pedal-assist system, 27.5+ mid-fat tyres for extra traction and capability, a wide-range 1x12 SRAM drivetrain and 4-piston brakes give Powerfly LT 9 true trail bike performance and the ability to go further, faster and bigger than you ever thought possible on an e-MTB.",
+    "brandId": "67311b77600dc86fd18af8bc",
+    "typeId": "67311d0d600dc86fd18af8d8",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/trek_electric_powerfly-lt-9.jpg"
+  },
+  {
+    "name": "Remedy 9.8",
+    "description": "Remedy 9.8 is a high-end long-travel trail bike built for getting rowdy on the most technical mountain bike trails. It offers the versatility and capability to take on everything from epic singletrack to serious air. A stiff OCLV Mountain Carbon frame, carbon wheels, RockShox suspension featuring Trek's exclusive RE:aktiv with Thru Shaft and a 1x12 SRAM GX Eagle drivetrain are perfect for your wildest all-mountain adventures.",
+    "brandId": "67311b77600dc86fd18af8bc",
+    "typeId": "67311ca1600dc86fd18af8d0",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/trek_mountain_remedy-9.jpg"
+  },
+  {
+    "name": "Madone SL",
+    "description": "Madone SL carries forward the advanced aerodynamic performance and all-around ride quality as other Madone road bike models, but it keeps the price in check with a standard stem and aero bar set up for adjustability. It's the ultimate racing bike at great value, with extraordinary race performance, aero wheels, a road-smoothing IsoSpeed decoupler, powerful hydraulic disc brakes and the sleek look that screams for speed.",
+    "brandId": "67311b77600dc86fd18af8bc",
+    "typeId": "67311c8b600dc86fd18af8ce",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/trek_road_madone-sl.jpg"
+  },
+  {
+    "name": "FX 2 Disc",
+    "description": "FX 2 Disc is a stylish and versatile hybrid bike with disc brakes that let you stop on a penny and ask for change, even when the weather isn't cooperating. Train, commute or ride for fun with the lightweight Alpha Gold Aluminium frame, 24 speeds and semi-skinny tyres that are fast on the road and stable on loose terrain.",
+    "brandId": "67311b77600dc86fd18af8bc",
+    "typeId": "67311d01600dc86fd18af8d6",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/trek_fitness_fx-2-disc.jpg"
+  },
+  {
+    "name": "Speed Concept",
+    "description": "Speed Concept is a lot of things, but above all, it’s fast. It's our most aerodynamic bike, which makes it an ideal triathlon bike and a great choice for TT enthusiasts who know every second matters. Plus, it's an exceptional value: adjustability, integration, customisation options, carbon aero wheels and an 11-speed drivetrain – all in a super aero bike built for flat-out speed.",
+    "brandId": "67311b77600dc86fd18af8bc",
+    "typeId": "67311c59600dc86fd18af8c8",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/trek_triathlon_speed-concept.jpg"
+  },
+  {
+    "name": "Precaliber",
+    "description": "Precaliber is a rugged kids' bike for young adventurers. It has a lightweight frame and quality components like a front suspension fork, 7-speed gearing and hand brakes that are perfectly sized to better fit small riders. For kids aged 6–8, between 45–52˝ (114–132 cm) tall.",
+    "brandId": "67311b77600dc86fd18af8bc",
+    "typeId": "67311cdc600dc86fd18af8d2",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/trek_kids_precaliber.jpg"
+  },
+  {
+    "name": "Adventure 520 Disc",
+    "description": "Adventure 520 Disc is a steel touring bike made for the open road. It's the longest-running model in our lineup, and it's built to carry you and your gear on your longest journeys. Rack and fender mounts, a wide range of gearing for climbing, and a stable touring geometry make it the perfect choice for loaded multi-day trips and comfortable all-day adventures.",
+    "brandId": "67311b77600dc86fd18af8bc",
+    "typeId": "67311c68600dc86fd18af8ca",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/trek_touring_adventure-520-disc.jpg"
+  },
+  {
+    "name": "Fuse Comp 29",
+    "description": "The Fuse Comp 29 punches way above its weight class thanks to a light-yet-burly M4 aluminum chassis, frame geometry that lends the bike both playfulness and capability, and parts that withstand a serious flogging.",
+    "brandId": "67311b67600dc86fd18af8ba",
+    "typeId": "67311ca1600dc86fd18af8d0",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/specialized_mountain_fuse-comp.jpg"
+  },
+  {
+    "name": "P3",
+    "description": "The P.Series P.3 doesn't put out fluff and sparkly stuff. It simply delivers a bombproof ride quality that mixes advanced technology and top-shelf materials with geometry that's proven in the street, park, and dirt.",
+    "brandId": "67311b67600dc86fd18af8ba",
+    "typeId": "67311d1a600dc86fd18af8da",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/specialized_bmx_p3.jpg"
+  },
+  {
+    "name": "S-Works Shiv Disc",
+    "description": "The Limited-Edition S-Works Shiv Disc features a limited colorway that, depending on the light, is a multitude of different colors. Only 500 individually numbered, limited-edition bikes, and their accompanying custom travel cases, will be available for preorder, so make sure to get yours soon.",
+    "brandId": "67311b67600dc86fd18af8ba",
+    "typeId": "67311c59600dc86fd18af8c8",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/specialized_triathlon_s-works-shiv-disc.jpg"
+  },
+  {
+    "name": "Sirrus",
+    "description": "We're adamant believers that the best way to mix up your fitness routine is found on two wheels. And with a lightweight frame for hard workouts, and a fit born from Body Geometry science that makes the bike feel like an extension of your body, the Men's Sirrus must be considered a key player on your fitness team. Go ahead and crank that intensity dial to 11—the Sirrus is ready to help you get fitter, stronger, and to become the better version of you.",
+    "brandId": "67311b67600dc86fd18af8ba",
+    "typeId": "67311d01600dc86fd18af8d6",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/specialized_fitness_sirrus.jpg"
+  },
+  {
+    "name": "Turbo Creo SL",
+    "description": "We have a long history of developing the world's highest performing road bikes. Tarmac, Venge, Roubaix, Allez, Diverge—each one dominates their respective category, featuring the best technologies in the industry. And while that's a tough palmarès to follow, the Turbo Creo SL redefines e-road bike performance. It's lightweight, smooth, capable, and lively—all with the power to flatten mountains, laugh at headwinds, and go farther than you ever thought possible. It's you, only faster.",
+    "brandId": "67311b67600dc86fd18af8ba",
+    "typeId": "67311d0d600dc86fd18af8d8",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/specialized_electric_turbo-creo.jpg"
+  },
+  {
+    "name": "AWOL",
+    "description": "The beautifully named AWOL has all kinds of touring goodies on a steel frame and fork with Specialized’s relaxed “adventure” geometry. You get rack and fender mounts on both ends, a Shimano Tiagra groupset, a triple chainring with a wide gearing range, and 29er wheels with 45mm Borough Armadillo tires that are as comfortable on dirt as they are on the road. Hydraulic disc brakes give you stopping power, and the bike comes with a handlebar custom to the AWOL that flares out 12 degrees at the bottom to help bolster stability.",
+    "brandId": "67311b67600dc86fd18af8ba",
+    "typeId": "67311c68600dc86fd18af8ca",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/specialized_touring_awol.jpg"
+  },
+  {
+    "name": "Dual Drive",
+    "description": "The durable, high-quality bike is comfortable and stylish, with a pair of soft gel saddles and extra-wide, bump-gobbling 2.1-inch tires. The components, meanwhile, are built for long-lasting use, including the 21-speed Shimano drive train, Revo twist shifters and reliable alloy linear pull V brakes. Best of all, the frame features low stand-over heights, making it easy for both riders to hop on. The tandem bike is perfect for people who want to spend a little quality time with a spouse or good friend.",
+    "brandId": "67311b52600dc86fd18af8b8",
+    "typeId": "67311c77600dc86fd18af8cc",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/northwoods_tandem_dual-drive.jpg"
+  },
+  {
+    "name": "Bikerton Pilot",
+    "description": "Folding bikes are great for those who need to commute on the train or who lack storage for their bicycle, however this convenience does come at a cost. A less efficient ride and (with entry models) much heavier bike are to be expected. We do offer large wheel folding bikes, offering you a faster more stable ride but these do not fold as small.",
+    "brandId": "67311b52600dc86fd18af8b8",
+    "typeId": "67311cee600dc86fd18af8d4",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/northwoods_foldable_bikerton-pilot.jpg"
+  },
+  {
+    "name": "Topstone",
+    "description": "Pure gravel goodness. With its high-volume tires, confident rider position and sporty handling, Topstone is ready to smash out big miles on the backroads, explore routes less traveled, or smooth out the chop on your morning commute.",
+    "brandId": "67311b43600dc86fd18af8b6",
+    "typeId": "67311c8b600dc86fd18af8ce",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/cannondale_road_topstone.jpg"
+  },
+  {
+    "name": "Superslice Ultegra",
+    "description": "Savagely fast, beautifully simple and intelligently progressive, the new SuperSlice is the weapon of choice for time-trial specialists and triathletes who want hyper-integrated speed, without all the fuss.",
+    "brandId": "67311b43600dc86fd18af8b6",
+    "typeId": "67311c59600dc86fd18af8c8",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/cannondale_triathlon_superslice-ultegra.jpg"
+  },
+  {
+    "name": "Jekyll",
+    "description": "This precision instrument is for the enduro artists, the ones who will use its Gemini dual-travel and poppy quickness to dance and float through the chop and chunder on their way to the top step.",
+    "brandId": "67311b43600dc86fd18af8b6",
+    "typeId": "67311ca1600dc86fd18af8d0",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/cannondale_mountain_jekyll.jpg"
+  },
+  {
+    "name": "Tesoro",
+    "description": "For you, this isn’t just a commute. It’s a way of life. Fully equipped for commuting and light touring, Tesoro is a spirited thoroughbred in a world of slow, heavy workhorses.",
+    "brandId": "67311b43600dc86fd18af8b6",
+    "typeId": "67311c30600dc86fd18af8c4",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/cannodale_utility_tesoro.jpg"
+  },
+  {
+    "name": "Treadwell EQ",
+    "description": "A bike for any day and anywhere. Fun and light to rip around the neighborhood for meet ups, running errands or Sunday fun days.",
+    "brandId": "67311b43600dc86fd18af8b6",
+    "typeId": "67311c30600dc86fd18af8c4",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/cannondale_utility_treadwell-eq.jpg"
+  },
+  {
+    "name": "Quick",
+    "description": "A fitness bike that's equally perfect for city cruising or getting a workout. Plus it's easy on the eyes.",
+    "brandId": "67311b43600dc86fd18af8b6",
+    "typeId": "67311d01600dc86fd18af8d6",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/cannondale_fitness_quick.jpg"
+  },
+  {
+    "name": "Moterra LT",
+    "description": "Unique motor & battery placement and Ai technology give the Moterra LT real MTB handling that other E-MTBs just can't match. It's full enduro performance - with a kick.",
+    "brandId": "67311b43600dc86fd18af8b6",
+    "typeId": "67311d0d600dc86fd18af8d8",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/cannondale_electric_moterra-lt.jpg"
+  },
+  {
+    "name": "Trail Balance",
+    "description": "Get your little riders rolling free and loving life on these high performance, Kid-Correct bikes.",
+    "brandId": "67311b43600dc86fd18af8b6",
+    "typeId": "67311cdc600dc86fd18af8d2",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/cannondale_kids_trail-balance.jpg"
+  },
+  {
+    "name": "Cujo Race",
+    "description": "With their agile feel and the grip and comfort of their big plus-size tires, the Cujos are the best way to learn trail-riding skills with fewer spills.",
+    "brandId": "67311b43600dc86fd18af8b6",
+    "typeId": "67311cdc600dc86fd18af8d2",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/cannondale_kids_cujo-race.jpg"
+  },
+  {
+    "name": "Tandem 29er",
+    "description": "For more than 25 years, Cannondale Tandems have been revered for their light weight, durability, and flex-free handling. Grab a partner and enjoy the ride.",
+    "brandId": "67311b43600dc86fd18af8b6",
+    "typeId": "67311c77600dc86fd18af8cc",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/cannondale_tandem_tandem-29er.jpg"
+  },
+  {
+    "name": "Road Tandem",
+    "description": "Whether powering up a climb or carving an alpine descent, the Road Tandem’s flex-free handling and lightweight efficiency make two-up riding a joy.",
+    "brandId": "67311b43600dc86fd18af8b6",
+    "typeId": "67311c77600dc86fd18af8cc",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/cannondale_tandem_road-tandem.jpg"
+  },
+  {
+    "name": "Hawk Hill",
+    "description": "Riding a bike is fun, and having fun on the trail was at the front of our minds when creating the Hawk Hill. Built around our MultiTrac suspension system, the Hawk Hill is our most playful and fun short travel suspension trail bike to date. Entry level through to high-performance spec, everyone can fall in love with mountain biking over and over again with the Hawk Hill.",
+    "brandId": "67311b31600dc86fd18af8b4",
+    "typeId": "67311ca1600dc86fd18af8d0",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/marin_mountain_hawk-hill.jpg"
+  },
+  {
+    "name": "Fairfax",
+    "description": "The Fairfax and Terra Linda line of fitness bikes have the speed of a road bike with a more comfortable upright position for meeting your weekly riding goals. Built with weekend bike path and weekday fitness riders in mind, the Fairfax and Terra Linda bikes are equally at home on shorter after work rides or longer weekend adventures. Disc brakes provide sure stopping power in all conditions, and all frames feature rack.",
+    "brandId": "67311b31600dc86fd18af8b4",
+    "typeId": "67311d01600dc86fd18af8d6",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/marin_fitness_fairfax.jpg"
+  },
+  {
+    "name": "Nail Trail E",
+    "description": "The Nail Trail E series of eMTBs bring a new zip to mountain biking, allowing riders to go farther and have more fun than ever before. These trail hardtail models were built from a performance mountain bike DNA, making them feel at home under the seasoned professional or any different fitness levels allowing more people than ever to share the joy mountain biking, maximizing the adventure with half the effort.",
+    "brandId": "67311b31600dc86fd18af8b4",
+    "typeId": "67311d0d600dc86fd18af8d8",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/marin_electric_nail-trail-e.jpg"
+  },
+  {
+    "name": "Hidden Canyon",
+    "description": "Ready to show the kids the trails and end up chasing them down their first real single track? Kids love the Hidden Canyon 20” and Bayview Trail 24” for their fun ride and exciting looks. Parents love them for the details that set them apart from the rest: lightweight aluminium frames, suspension forks, disc brakes, and durable component choices.",
+    "brandId": "67311b31600dc86fd18af8b4",
+    "typeId": "67311cdc600dc86fd18af8d2",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/marin_kids_hidden-canyon.jpg"
+  },
+  {
+    "name": "SB150",
+    "description": "'Race Bred.' It's not just a slogan printed on the SB150 top tube. We've been pinning on numbers and pinning the throttle since 1985. So when choices had to be made on the SB150, every single one was made in the name of unbridled speed. The ultimate example of breeding a bike to beat the clock.",
+    "brandId": "67311b20600dc86fd18af8b2",
+    "typeId": "67311ca1600dc86fd18af8d0",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/yeti_mountain_sb150.jpg"
+  },
+  {
+    "name": "SB140",
+    "description": "Some say the SB140 never met a dirt it didn't like. We agree in spades. What's your pleasure? Drag a bar. Make an edit. Stay out after dark. Try it. Land it. Or just stay at it. Happy to pedal. Greedy for more. The mayor of Jibtown, proudly wearing the rip crown. The SB140. Down to fun.",
+    "brandId": "67311b20600dc86fd18af8b2",
+    "typeId": "67311ca1600dc86fd18af8d0",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/yeti_mountain_sb140.jpg"
+  },
+  {
+    "name": "Process CR DL",
+    "description": "The Process CR DL represents four years of design iterations, mechanical engineering and real-world testing. Born from the beloved Process 111, it ticks all of the longer/lower/slacker boxes while still maintaining the classic Kona feel of really freaking fun. A carbon frame features a 140mm RockShox Pike Ultimate RC2 fork up front, a RockShox Super Deluxe Ultimate rear shock and a SRAM X01 Eagle 12-speed drivetrain. With a build this sweet the CR DL leaves nothing to be desired.",
+    "brandId": "6731193a600dc86fd18af8b0",
+    "typeId": "67311ca1600dc86fd18af8d0",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/kona_mountain_process-cr-dl.jpg"
+  },
+  {
+    "name": "Libre DL",
+    "description": "The 2020 Libre DL moves to 650b wheels and a 2x Shimano GRX 800 drivetrain, providing a broader gear range for a wider variety of terrain. The Kona Race Light Carbon frame is mounted with an Easton carbon bar, Race Face carbon seatpost, Easton EA70 AX wheels and a Kona Verso Carbon touring fork providing a light and fast ride. Numerous mounts for water bottles and frame bags give you the ability to be more self-sufficient and travel further than ever before.",
+    "brandId": "6731193a600dc86fd18af8b0",
+    "typeId": "67311c8b600dc86fd18af8ce",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/kona_road_libre-dl.jpg"
+  },
+  {
+    "name": "UTE",
+    "description": "Multiple Bike-of-the-Year awards speak for themselves. The Ute is a well-designed, carry-everything utility bike that makes quick work of trips to the store, dropping the kids off at school and bringing the tree home for the holidays. We didn’t need any awards to tell us how rad this bike is, but it’s nice to see that other people get it.",
+    "brandId": "6731193a600dc86fd18af8b0",
+    "typeId": "67311c30600dc86fd18af8c4",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/kona_utility_ute.jpg"
+  },
+  {
+    "name": "Remote 160",
+    "description": "Trust the process. That’s been our mantra as we’ve brought the Remote 160 to life. Based on our award-winning Process platform, the Remote 160 is the ultimate enduro E-bike. Powered by Shimano’s natural-feeling E8000 drive unit, the Remote 160 will get you deeper into the woods, more laps on your favorite trail, and more miles under your belt. Featuring 160mm travel front and rear with a RockShox Lyrik Select fork and Super Deluxe trunnion shock, SRAM Code R brakes with 200mm rotors, and a SRAM GX/NX 12-speed drivetrain, the Remote 160 is a performance-based machine ready for big adventures.",
+    "brandId": "6731193a600dc86fd18af8b0",
+    "typeId": "67311d0d600dc86fd18af8d8",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/kona_electric_remote-160.jpg"
+  },
+  {
+    "name": "Honzo 20",
+    "description": "Imagine being a little kid again and riding bikes with your parents or older siblings. Everything they did made an impression. Their style, their bikes. The Honzo 20 brings the magic of a hardtail to the youngest riders. With a Shimano 1x drivetrain, hydraulic disc brakes, tan-walled tires, and an air-sprung suspension fork, the Honzo 20 is one ripping little machine!",
+    "brandId": "6731193a600dc86fd18af8b0",
+    "typeId": "67311cdc600dc86fd18af8d2",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/kona_kids_honzo-20.jpg"
+  },
+  {
+    "name": "Sutra",
+    "description": "Kona describes the Sutra as a blend between a mountain, road, and touring bike. It certainly has the style of a classic touring bike, with upright lines on a steel frame and a gorgeous Brooks B17 leather saddle. Add fenders and panniers and you could be fooled into thinking you’re riding something vintage, but you also get mechanical disc brakes, a triple chainring with a Shimano Deore drivetrain, and 700c wheels that accommodate 40mm or 29er 2.2-inch tires, which are more adventure oriented.",
+    "brandId": "6731193a600dc86fd18af8b0",
+    "typeId": "67311c68600dc86fd18af8ca",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/kona_touring_sutra.jpg"
+  },
+  {
+    "name": "One Forty",
+    "description": "Introduced in 2018 and an instant winner with trail riders and the international cycling press alike. Our 140mm trail machine was called a bike ‘with great pedalling efficiency, brilliant suspension and top fun handling’ (MBR), a ‘bloody hoot to ride’ (FLOW), a bike that ‘eagerly surges forward’ (IMB) and ‘one of the best mid-travel bikes we have ridden’ (MBUK). The super supple and active suspension system paired with great pedalling efficiency makes the ONE-FORTY the perfect trail bike for long demanding days in the saddle as well as technical trail sessions.",
+    "brandId": "673117e1600dc86fd18af8ae",
+    "typeId": "67311ca1600dc86fd18af8d0",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/merida_mountain_one-forty.jpg"
+  },
+  {
+    "name": "Scultura",
+    "description": "Our lightweight racer is at the cutting edge of design, powering our ProTour teams to Grand Tour victories. Available in two different geometries and as either disc brake or rim brake option, our classic road bike combines class-leading comfort, with whippet-like acceleration and stage winning climbing pedigree. Cycling Plus magazine calls it 'a piece of legendary racing equipment'.",
+    "brandId": "673117e1600dc86fd18af8ae",
+    "typeId": "67311c8b600dc86fd18af8ce",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/merida_road_scultura.jpg"
+  },
+  {
+    "name": "Speeder",
+    "description": "Fast and lightweight, the SPEEDER shares its genes with road bikes and gets a redesign for the 2020 season. The new slightly more sporty geometry offers a more extended reach for added stability, while still maintaining a more upright and comfortable riding position. The comfort inspired geometry paired with control enhancing flat handlebars, and powerful disc brakes make the SPEEDER ideal for fast commuting or fitness rides. Wider tyres and more tyre clearance improve the comfort element even further, but also give the SPEEDER more grip when it counts.",
+    "brandId": "673117e1600dc86fd18af8ae",
+    "typeId": "67311d01600dc86fd18af8d6",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/merida_fitness_speeder.jpg"
+  },
+  {
+    "name": "Mission J",
+    "description": "26” equipped road or cyclo cross bikes for the aspiring rider. Quality aluminium frames featuring the latest standards and with ample tyres clearance to run bigger tyres for increased comfort and grip or to simply increase the mud shedding capabilities.",
+    "brandId": "673117e1600dc86fd18af8ae",
+    "typeId": "67311cdc600dc86fd18af8d2",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/merida_kids_mission-j.jpg"
+  },
+  {
+    "name": "eSPRESSO",
+    "description": "The fourth generation of our eSPRESSO is dominated by an extensive list of new and improved features in comparison to its predecessor. The biggest focus was on the integration of the battery in the down tube, followed by increased tyre width and the introduction of the hub gear slider dropout. The modern in-tube battery design in combination with the purposeful and hugely comfortable geometry as well as the seamless integration of the whole spectrum of Shimano’s powerful STePS motors sets the eSPRESSO apart from other e-bikes.",
+    "brandId": "673117e1600dc86fd18af8ae",
+    "typeId": "67311d0d600dc86fd18af8d8",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/merida_electric_espresso.jpg"
+  },
+  {
+    "name": "Equinox",
+    "description": "This is the big brother of the Eclipse unicycle. An all out, top end freestyle unicycle that is designed to withstand the rigures of freestyle tricks. The frames is designed to fit standard hubs and can also take tyres up to 19×2.5 tyres.",
+    "brandId": "67311df9600dc86fd18af8dd",
+    "typeId": "67311c4b600dc86fd18af8c6",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/nimbus_unicycle_equinox.jpg"
+  },
+  {
+    "name": "Oracle Disc",
+    "description": "The Oracle Unicycle is one of the very few Muni’s available with Disc brake installed. The design is aimed at the serious the unicycle rider offering design advantages that help exceed riders current performance.",
+    "brandId": "67311df9600dc86fd18af8dd",
+    "typeId": "67311c4b600dc86fd18af8c6",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/nimbus_unicycle_oracle-disc.jpg"
+  },
+  {
+    "name": "Nightfox",
+    "description": "The Nimbus Nightfox was designed to allow almost anybody to ride a 36″ unicycle. The legs of the frame are adjustable instead of using a traditional seatpost.",
+    "brandId": "67311df9600dc86fd18af8dd",
+    "typeId": "67311c4b600dc86fd18af8c6",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/nimbus_unicycle_nightfox.jpg"
+  },
+  {
+    "name": "Performer Giraffe",
+    "description": "High audience impact! Taller is better. This giraffe unicycle can be extended from 5 feet tall to 7 feet tall. Designed to be tough enough for performing. Can be rapidly dismantled for ease of transportation. It can be disassembled into four sections which fit into an ordinary suitcase, 26x20x7″ (65x50x18cm) – ideal for traveling performers.",
+    "brandId": "67311df9600dc86fd18af8dd",
+    "typeId": "67311c4b600dc86fd18af8c6",
+    "imgUrl": "https://dixylo-cycly.s3-ap-southeast-2.amazonaws.com/models/nimbus_unicycle_performer-giraffe.jpg"
+  }
+]

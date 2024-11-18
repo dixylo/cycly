@@ -1,52 +1,70 @@
-const _ = require('lodash');
-const { Type, validate } = require('../models/type');
-const validateObjectId = require('../middleware/validateObjectId');
-const auth = require('../middleware/auth');
-const admin = require('../middleware/admin');
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const { Type, validate } = require("../models/type");
+const validateId = require("../middleware/validateId");
+const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
+const inject = require("../middleware/validate");
 
-router.get('/', async (req, res) => {
-  const types = await Type.find().sort('name').select({ name: 1, description: 1 });
+router.get("/", async (req, res) => {
+  const types = await Type.find().sort("name");
   res.send(types);
 });
 
-router.get('/:id', validateObjectId, async (req, res) => {
+router.get("/:id", validateId, async (req, res) => {
   const type = await Type.findById(req.params.id);
-  if (!type) return res.status(404).send('Type with the given ID not found.');
+  if (!type) return res.status(404).send("Type with the given ID not found.");
   res.send(type);
 });
 
-router.post('/', [auth, admin], async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+router.post("/", [auth, admin, inject(validate)], async (req, res) => {
+  const { name, description, imgUrl } = req.body;
+  const type = new Type({
+    name,
+    description,
+    imgUrl,
+  });
 
-  const type = new Type(_.pick(req.body, ['name', 'description']));
   try {
     await type.save();
     res.send(type);
-  } catch(ex) {
+  } catch (ex) {
     console.log(ex.message);
+    res.status(500).send("Something failed.");
   }
 });
 
-router.put('/:id', [auth, admin], async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+router.put(
+  "/:id",
+  [validateId, auth, admin, inject(validate)],
+  async (req, res) => {
+    const { name, description, imgUrl } = req.body;
 
-  const type = await Type.findByIdAndUpdate(
-    req.params.id,
-    _.pick(req.body, ['name', 'description']),
-    { new: true }
-  );
-  if (!type) return res.status(404).send('Type with the given ID not found.');
+    try {
+      const type = await Type.findOneAndUpdate(
+        { _id: req.params.id },
+        { name, description, imgUrl },
+        { new: true }
+      );
+      if (!type)
+        return res.status(404).send("Type with the given ID not found.");
 
-  res.send(type);
-});
+      res.send(type);
+    } catch (ex) {
+      console.log(ex.message);
+      res.status(500).send("Something failed.");
+    }
+  }
+);
 
-router.delete('/:id', [auth, admin], async (req, res) => {
-  const type = await Type.findByIdAndDelete(req.params.id);
-  if (!type) return res.status(404).send('Type with the given ID not found.');
+router.delete("/:id", [validateId, auth, admin], async (req, res) => {
+  const type = await Type.findById(req.params.id);
+  if (!type) return res.status(404).send("Type with the given ID not found.");
+
+  if (type.models && type.models.length)
+    return res.status(403).send("Could not delete types with models");
+
+  await Type.deleteOne({ _id: req.params.id });
 
   res.send(type);
 });
