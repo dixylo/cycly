@@ -71,7 +71,7 @@ const rentalSchema = new mongoose.Schema({
 });
 
 rentalSchema.statics.lookup = function (query) {
-  return this.findOne(query);
+  return this.find(query);
 };
 
 rentalSchema.methods.return = function () {
